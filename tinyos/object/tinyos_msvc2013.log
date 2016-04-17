@@ -1,0 +1,58 @@
+﻿Build started 21/03/2016 14:27:41.
+     1>Project "C:\Users\cex123\Desktop\tinyos\tinyos_msvc2013.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /nologo /W3 /WX- /O1 /Oi /Os /Oy /GT /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /Gm- /MD /GS- /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\cex123\Desktop\tinyos\object\\" /Fd"C:\Users\cex123\Desktop\tinyos\object\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt source\devices\fdd.c source\devices\keyboard.c source\devices\portio.c source\devices\serial.c source\devices\terminal.c source\kernel\global.c source\kernel\init.c source\kernel\kernel.c source\kernel\logon.c source\kernel\tea.c source\library\malloc.c source\library\printf.c source\library\stdio.c source\library\string.c source\shell\shell.c source\userland\chat.c source\userland\echo.c
+         fdd.c
+         keyboard.c
+         portio.c
+         serial.c
+         terminal.c
+         global.c
+         init.c
+         kernel.c
+         logon.c
+         tea.c
+         malloc.c
+         printf.c
+         stdio.c
+         string.c
+         shell.c
+         chat.c
+         echo.c
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\cex123\Desktop\tinyos\tinyos\kernel.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB /MANIFEST:NO /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /TLBID:1 /BASE:"0x00010000" /DYNAMICBASE:NO /NXCOMPAT:NO /IMPLIB:"C:\Users\cex123\Desktop\tinyos\tinyos\kernel.lib" /MACHINE:X86 /SAFESEH C:\Users\cex123\Desktop\tinyos\object\fdd.obj
+         C:\Users\cex123\Desktop\tinyos\object\keyboard.obj
+         C:\Users\cex123\Desktop\tinyos\object\portio.obj
+         C:\Users\cex123\Desktop\tinyos\object\serial.obj
+         C:\Users\cex123\Desktop\tinyos\object\terminal.obj
+         C:\Users\cex123\Desktop\tinyos\object\global.obj
+         C:\Users\cex123\Desktop\tinyos\object\init.obj
+         C:\Users\cex123\Desktop\tinyos\object\kernel.obj
+         C:\Users\cex123\Desktop\tinyos\object\logon.obj
+         C:\Users\cex123\Desktop\tinyos\object\tea.obj
+         C:\Users\cex123\Desktop\tinyos\object\malloc.obj
+         C:\Users\cex123\Desktop\tinyos\object\printf.obj
+         C:\Users\cex123\Desktop\tinyos\object\stdio.obj
+         C:\Users\cex123\Desktop\tinyos\object\string.obj
+         C:\Users\cex123\Desktop\tinyos\object\shell.obj
+         C:\Users\cex123\Desktop\tinyos\object\chat.obj
+         C:\Users\cex123\Desktop\tinyos\object\echo.obj
+         tinyos_msvc2013.vcxproj -> C:\Users\cex123\Desktop\tinyos\tinyos\kernel.exe
+       PostBuildEvent:
+         "C:\Users\cex123\Desktop\tinyos\tinyos\bootlinker.exe" "/FDD:C:\Users\cex123\Desktop\tinyos\tinyos\fdd.img" "/EXE:C:\Users\cex123\Desktop\tinyos\tinyos\kernel.exe" "/FAT:kernel.exe"
+         :VCEnd
+         
+         -----------------------------------------------
+         boot linker version 1.0 - Michael Collins, 2014
+         -----------------------------------------------
+         
+         [C:\Users\cex123\Desktop\tinyos\tinyos\bootlinker.exe]
+         [/FDD:C:\Users\cex123\Desktop\tinyos\tinyos\fdd.img]
+         [/EXE:C:\Users\cex123\Desktop\tinyos\tinyos\kernel.exe]
+         [/FAT:kernel.exe]
+     1>Done Building Project "C:\Users\cex123\Desktop\tinyos\tinyos_msvc2013.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.96

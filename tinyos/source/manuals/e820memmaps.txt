@@ -1,0 +1,71 @@
+/* ========================================================== */
+/* File Name : source/manuals/e820memmaps.txt                 */
+/* File Date : 5 February 2015                                */
+/* Author(s) : Michael Collins                                */
+/* ---------------------------------------------------------- */
+/* Examples of actual e820 memory maps.                       */
+/* ========================================================== */
+
+// P3 Memory Map 0x00000007,
+//      BASE                SIZE                TYPE
+// [01] 0x0000000000000000, 0x000000000009F800, 0x00000001, 0x00000001, // (0x01 Memory Available To OS)
+// [02] 0x000000000009FC00, 0x0000000000000400, 0x00000002, 0x00000001, // (0x02 Reserved, Not Available (e.g. System ROM, Memory-Mapped Devices)
+// [03] 0x00000000000F0000, 0x0000000000010000, 0x00000002, 0x00000001, // (0x02 Reserved, Not Available (e.g. System ROM, Memory-Mapped Devices)
+// [04] 0x00000000FFFF0000, 0x0000000000010000, 0x00000002, 0x00000001, // (0x02 Reserved, Not Available (e.g. System ROM, Memory-Mapped Devices)
+// [05] 0x0000000000100000, 0x0000000007EF0000, 0x00000001, 0x00000001, // (0x01 Memory Available To OS)
+// [06] 0x0000000007FF3000, 0x000000000000D000, 0x00000003, 0x00000001, // (0x03 ACPI Reclaim Memory Usable After Reading ACPI Tables)
+// [07] 0x0000000007FF0000, 0x0000000000003000, 0x00000004, 0x00000001, // (0x04 ACPI NVS Memory OS Is Required To Save This Memory Between NVS Sessions)
+// [08] 0x0000000000000000, 0x0000000000000000, 0x00000000, 0x00000000, //
+
+// P4 Memory Map 0x0000000B,
+//      BASE                SIZE                TYPE
+// [01] 0x0000000000000000, 0x00000000000A0000, 0x00000001, 0x00000001, // (0x01 Memory Available To OS)
+// [02] 0x00000000000F0000, 0x0000000000010000, 0x00000002, 0x00000001, // (0x02 Reserved, Not Available (e.g. System ROM, Memory-Mapped Devices)
+// [03] 0x0000000000100000, 0x0000000047670000, 0x00000001, 0x00000001, // (0x01 Memory Available To OS)
+// [04] 0x0000000047770000, 0x0000000000002000, 0x00000004, 0x00000001, // (0x04 ACPI NVS Memory OS Is Required To Save This Memory Between NVS Sessions)
+// [05] 0x0000000047772000, 0x0000000000021000, 0x00000003, 0x00000001, // (0x03 ACPI Reclaim Memory Usable After Reading ACPI Tables)
+// [06] 0x0000000047793000, 0x000000000006D000, 0x00000002, 0x00000001, // (0x02 Reserved, Not Available (e.g. System ROM, Memory-Mapped Devices)
+// [07] 0x00000000FED20000, 0x0000000000070000, 0x00000002, 0x00000001, // (0x02 Reserved, Not Available (e.g. System ROM, Memory-Mapped Devices)
+// [08] 0x00000000FECF0000, 0x0000000000001000, 0x00000002, 0x00000001, // (0x02 Reserved, Not Available (e.g. System ROM, Memory-Mapped Devices)
+// [09] 0x00000000FEC00000, 0x0000000000010000, 0x00000002, 0x00000001, // (0x02 Reserved, Not Available (e.g. System ROM, Memory-Mapped Devices)
+// [0A] 0x00000000FEE00000, 0x0000000000010000, 0x00000002, 0x00000001, // (0x02 Reserved, Not Available (e.g. System ROM, Memory-Mapped Devices)
+// [0B] 0x00000000FFB00000, 0x0000000000500000, 0x00000002, 0x00000001, // (0x02 Reserved, Not Available (e.g. System ROM, Memory-Mapped Devices)
+// [0C] 0x0000000000000000, 0x0000000000000000, 0x00000000, 0x00000000, // 
+
+
+step 1 build super list
+step 2 sort super list by base address
+step 3 add holes to super list
+step 4 add BIOS DATA AREA entries
+step 5 add IVT entry
+step 6 sort super list
+step 7 build used list
+step 8 build free list
+step 9 build hole list
+
+typedef struct list {
+	void *Prev;
+	void *Next;
+	void *Data;
+	int   Size;
+} list;
+
+
+list *Free;         // stores blocks of memory that are free for use
+list *Used;         // stores blocks of memory that are in use or reserved
+list *Hole;         // stores gaps in memory
+list  List[4096]; // array to hold list entries (resize as needed)
+list *Memory;       // stores the super list built by parsing the E820 Memory Map
+
+
+
+  P3 E820 Memory Map List
+  <-FREE->   <-BIOS->   <-VRAM->   <-BIOS->   <-ACPI->   <-NVSM->   <-FREE->   <-HOLE->   <-BIOS->
+  00000000   0009FC00   000A0000   000F0000   00100000   07FF0000   07FF3000   08000000   FFFF0000
+  0009F800   00000400   00050000   00010000   07EF0000   00003000   0000D000   F7FF0000   00010000
+
+
+  P4 E820 Memory Map List
+  <-FREE->   <-VRAM->   <-BIOS->   <-FREE->   <-NVSM->   <-ACPI->   <-BIOS->   <-HOLE->   <-BIOS->   <-BIOS->   <-BIOS->   <-BIOS->   <-BIOS->
+  00000000   000A0000   000F0000   00100000   47770000   47772000   47793000   47800000   FED20000   FECF0000   FEC00000   FEE00000   FFB00000
+  000A0000   00050000   00010000   47670000   00002000   00021000   0006D000   B7520000   00070000   00001000   00010000   00010000   00500000 

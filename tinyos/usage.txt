@@ -1,0 +1,26 @@
+to execute you will need a VM or PC with the following
+   32 Bit intel processor
+   Floppy drive
+   RS232 Serial port
+
+to logon use either
+logon : "root"
+password : ""
+
+or alternatively
+logon : "mike"
+password : "letmein"
+
+to logout use either
+user > "logout"
+
+or alternatively
+user > "exit"
+
+to execute the chat program enter the following in the shell:
+user > "chat"
+
+and to exit
+user > "exit"
+
+echo command is also supported

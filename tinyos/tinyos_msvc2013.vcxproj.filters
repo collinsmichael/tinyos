@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="kernel">
+      <UniqueIdentifier>{a560067c-8589-4db4-a6b7-18310bd42c71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="devices">
+      <UniqueIdentifier>{bdca7af2-15e8-4f5e-ac80-869250b73925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="library">
+      <UniqueIdentifier>{2b92094d-1160-4273-9373-24670f5ef5c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manuals">
+      <UniqueIdentifier>{370a63ae-a4a1-4e63-ad87-b2a1f76f6c50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shell">
+      <UniqueIdentifier>{f29ed648-32ce-4f9e-9bfa-18a78e7bbe05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="userland">
+      <UniqueIdentifier>{6b08a6e8-19ac-4fd9-a33f-a974137d9105}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\devices\fdd.c">
+      <Filter>devices</Filter>
+    </ClCompile>
+    <ClCompile Include="source\devices\keyboard.c">
+      <Filter>devices</Filter>
+    </ClCompile>
+    <ClCompile Include="source\devices\portio.c">
+      <Filter>devices</Filter>
+    </ClCompile>
+    <ClCompile Include="source\devices\serial.c">
+      <Filter>devices</Filter>
+    </ClCompile>
+    <ClCompile Include="source\devices\terminal.c">
+      <Filter>devices</Filter>
+    </ClCompile>
+    <ClCompile Include="source\kernel\global.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="source\kernel\init.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="source\kernel\kernel.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="source\kernel\logon.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="source\kernel\tea.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="source\library\malloc.c">
+      <Filter>library</Filter>
+    </ClCompile>
+    <ClCompile Include="source\library\printf.c">
+      <Filter>library</Filter>
+    </ClCompile>
+    <ClCompile Include="source\library\stdio.c">
+      <Filter>library</Filter>
+    </ClCompile>
+    <ClCompile Include="source\library\string.c">
+      <Filter>library</Filter>
+    </ClCompile>
+    <ClCompile Include="source\shell\shell.c">
+      <Filter>shell</Filter>
+    </ClCompile>
+    <ClCompile Include="source\userland\chat.c">
+      <Filter>userland</Filter>
+    </ClCompile>
+    <ClCompile Include="source\userland\echo.c">
+      <Filter>userland</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="source\manuals\e820memmaps.txt">
+      <Filter>manuals</Filter>
+    </Text>
+    <Text Include="source\manuals\readme.txt">
+      <Filter>manuals</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\internal.h" />
+    <ClInclude Include="source\tinyos.h" />
+    <ClInclude Include="source\userland.h" />
+  </ItemGroup>
+</Project>

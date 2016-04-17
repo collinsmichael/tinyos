@@ -1,0 +1,24 @@
+the source code is divided into 5 branches
+  o kernel
+  o shell
+  o devices
+  o library
+  o userland
+
+the kernel is responsible for initialization and logon
+the shell allows users to execute userland programs by name
+devices are exposed as file streams.
+library houses a minimalist c runtime.
+userland is where programs such as echo, and chat are kept.
+
+
+the system includes a basic memory manager, standard input output,
+and a commandline interpretter.
+
+in debug builds all hardware IO is avoided and instead input
+and output is achieved by reading/writing arrays.
+
+the keyboard array in "source/devices/keyboard.c"
+there lives a char array that acts as user input.
+this char array is interpretted by the shell and programs
+are executed.

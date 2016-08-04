@@ -16,7 +16,6 @@ FILE devices[] = {
 	{  "stdin",  80*25*2, "rw",  0666, 0,    0,    tty_getc,  tty_putc,  tty_open,  tty_close  },
 	{  "stout",  80*25*2, "rw",  0666, 0,    0,    tty_getc,  tty_putc,  tty_open,  tty_close  },
 	{  "stderr", 80*25*2, "rw",  0666, 0,    0,    tty_getc,  tty_putc,  tty_open,  tty_close  },
-
 	{  "tty",    80*25*2, "rw",  0666, 0,    0,    tty_getc,  tty_putc,  tty_open,  tty_close  },
 	{  "kbrd",   256,     "rw",  0666, 0,    0,    kbrd_getc, kbrd_putc, kbrd_open, kbrd_close },
 	{  "s0",     512,     "rw",  0666, 0,    0,    s0_getc,   s0_putc,   s0_open,   s0_close   }
@@ -54,6 +53,7 @@ FILE *kopen(char *path, char *access) {
 	/* recognized devices */
 	device = match_device(path, access);
 	if (!device) return 0;
+	if (!device->open) return 0;
 	if (!device->open(path, access)) return 0;
 
 	/* cache a user copy */

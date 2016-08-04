@@ -12,7 +12,7 @@
 
 
 #ifndef NDEBUG
-	static char screen[80*25*4];
+static char screen[80*25*4];
 #endif
 
 static char  bg = 0x02; // teletype color
@@ -75,20 +75,15 @@ void kshowcursor(void) {
 /* scrolling window contents as necessary.                                   */
 /* ------------------------------------------------------------------------- */
 void tty_putc(char c) {
-	/* newline */
 	if (c == '\n') {
 		do put_ascii(cursor++, ' ', bg); while (cursor % 80 != 0);
-	/* tab */
 	} else if (c == '\t') {
 		do put_ascii(cursor++, ' ', bg); while (cursor%4);
-	/* carriage return */
 	} else if (c == '\r') {
 		cursor -= cursor % 80;
-	/* backspace */
-	} else if (c == 0x08) {
+	} else if (c == 0x08) { /* backspace */
 		put_ascii(cursor,   ' ', bg); /* wipe out cursor             */
 		put_ascii(--cursor, ' ', bg); /* wipe out previous character */
-	/* ascii */
 	} else {
 		put_ascii(cursor++, c, bg);
 	}

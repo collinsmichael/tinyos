@@ -20,7 +20,6 @@ char inportb(int port) {
 #else
 	data = 0;
 #endif
-
 	return data;
 }
 

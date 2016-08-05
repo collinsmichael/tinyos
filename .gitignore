@@ -1,8 +1,9 @@
-tinyos/object/
-tinyos/*.sdf
-tinyos/*.sln
-tinyos/*.suo
-tinyos/*.vcproj
-tinyos/*.vcxproj
-tinyos/*.vcxproj.filters
-tinyos/*.vcxproj.user
+/tinyos/
+/object/
+*.sdf
+*.sln
+*.suo
+*.vcproj
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user

@@ -1,5 +1,5 @@
-/tinyos/
-/object/
+/tinyos/tinyos/
+/tinyos/object/
 *.sdf
 *.sln
 *.suo

@@ -68,6 +68,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)kernel.exe</OutputFile>
+      <BaseAddress>0x00010000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,6 +88,8 @@
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <ExceptionHandling>false</ExceptionHandling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>$(OutDir)source\listings\</AssemblerListingLocation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -97,12 +102,21 @@
       <BaseAddress>0x00010000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>false</DataExecutionPrevention>
+      <AdditionalOptions>/STUB:$(OutDir)stub.exe
+/FILEALIGN:32
+/ALIGN:32
+ %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>"$(OutDir)bootlinker.exe" "/FDD:$(OutDir)fdd.img" "/EXE:$(OutDir)kernel.exe" "/FAT:kernel.exe"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\devices\clock.c" />
     <ClCompile Include="source\devices\fdd.c" />
     <ClCompile Include="source\devices\keyboard.c" />
     <ClCompile Include="source\devices\portio.c" />
@@ -120,6 +134,7 @@
     <ClCompile Include="source\shell\shell.c" />
     <ClCompile Include="source\userland\chat.c" />
     <ClCompile Include="source\userland\echo.c" />
+    <ClCompile Include="source\userland\time.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="source\manuals\e820memmaps.txt" />

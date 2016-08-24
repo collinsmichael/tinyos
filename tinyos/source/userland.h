@@ -11,10 +11,11 @@
 
 
 /* ------------------------------------------------------------------------- */
-/* source/userland/chat.c                                                    */
+/* source/userland/*.c                                                       */
 /* ------------------------------------------------------------------------- */
 int echo(int argc, char **argv);
 int chat(int argc, char **argv);
+int time(int argc, char **argv);
 
 
 #endif

@@ -80,7 +80,7 @@ void _cdecl kbrd_putc(char c) {
 // here every keystroke is stored and played back, from login and password, commandline entry
 // even human errors and corrections are embedded within this array
 static int getci = 0;
-static char getcbuffer[] = "mike\nletmein\necho hellp\x08o wok\x08rld\nchat\nhello\n0\nexit\nexit\n\n";
+static char getcbuffer[] = "mike\nletmein\ntime\necho hellp\x08o wok\x08rld\nchat\nhello\n0\nexit\nexit\n\n";
 char _cdecl kbrd_getc(void) {
 	char c = getcbuffer[getci];
 	getci = min(getci+1, sizeof(getcbuffer)-2);

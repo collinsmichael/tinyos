@@ -38,8 +38,6 @@ typedef struct FILE {
 #define stdout ((FILE*)0x00000002)
 #define stderr ((FILE*)0x00000003)
 
-
-
 void  kputchar(char c);
 void  kprintn(int n, int base);
 void  kprintf(char *fmt, ...);
@@ -56,6 +54,7 @@ char  getch(void);
 void  putch(char c);
 void  kshowcursor(void);
 
+void clock(unsigned char datetime[8]);
 
 /* ------------------------------------------------------------------------- */
 /* source/library/stdio.c                                                    */

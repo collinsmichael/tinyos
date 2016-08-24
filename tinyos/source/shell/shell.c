@@ -22,7 +22,8 @@ typedef struct list {
 /* list of known programs */
 list program[] = {
 	{ 0, 4, "echo", echo },
-	{ 0, 4, "chat", chat }
+	{ 0, 4, "chat", chat },
+	{ 0, 4, "time", time }
 };
 
 /* function names are used as the hash key */
@@ -34,8 +35,9 @@ list *hash_table[256] = {
 	0,0,0,0, 0,0,0,0,
 	&program[1], /* 0x48 = chat */
 	0,0,0, 0,0,0,0,
-
-	0,0,0,0, 0,0,0,0, 0,0,0,0, 0,
+    0,0,0,0, 0,0,0,
+    &program[2],/* 0x57 = time */
+    0,0,0,0, 0,
 	&program[0], /* 0x5D = echo */
 	0,0,
 };
@@ -158,7 +160,7 @@ int shell_main(USER *user) {
 			if (kstrcmp(cmd, "exit\n") == 0) break;  /* time to exit        */
 			shell_exec(cmd);                         /* execute the command */
 			kmemset(cmd, cptr = 0, sizeof(cmd));     /* clear the buffer    */
-			kfprintf(stdout, "\n%s > ", user->name);
+			kfprintf(stdout, "%s > ", user->name);
 		}
 	}
 	return 0;

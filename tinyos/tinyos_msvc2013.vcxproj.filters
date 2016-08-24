@@ -72,6 +72,12 @@
     <ClCompile Include="source\userland\echo.c">
       <Filter>userland</Filter>
     </ClCompile>
+    <ClCompile Include="source\devices\clock.c">
+      <Filter>devices</Filter>
+    </ClCompile>
+    <ClCompile Include="source\userland\time.c">
+      <Filter>userland</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="source\manuals\e820memmaps.txt">

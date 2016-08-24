@@ -10,7 +10,11 @@
 #include "../internal.h"
 
 
+unsigned char datetime[8];
+
+
 int init(void) {
+    clock(datetime);
 	memmap_init(); /* source/library/memory.c */
 	return 1;
 }

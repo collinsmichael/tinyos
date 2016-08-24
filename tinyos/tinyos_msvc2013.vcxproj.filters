@@ -86,6 +86,9 @@
     <Text Include="source\manuals\readme.txt">
       <Filter>manuals</Filter>
     </Text>
+    <Text Include="source\manuals\cmos-rtc.txt">
+      <Filter>manuals</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\internal.h" />

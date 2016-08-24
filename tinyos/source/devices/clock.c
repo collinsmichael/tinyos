@@ -18,6 +18,7 @@
 #define century  0x06
 #define statusa  0x07
 #define statusb  0x08
+#define no_nmi   0x80
 
 
 void clock(unsigned char datetime[8]) {
@@ -31,15 +32,15 @@ void clock(unsigned char datetime[8]) {
     do {
         kmemcpy(older, newer, sizeof(newer));
         for (i = 0; i < 8; i++) {
-            outportb(0x70, cmos[i]);
+            outportb(0x70, no_nmi | cmos[i]);
             newer[i] = inportb(0x71);
         }
 
-        outportb(0x70, 108);
+        outportb(0x70, no_nmi | 108);
         cent = inportb(0x71);
         if (cent == 0) continue;
 
-        outportb(0x70, cent);
+        outportb(0x70, no_nmi | cent);
         newer[century] = inportb(0x71);
     } while (kmemcmp(older, newer, sizeof(newer)));
 

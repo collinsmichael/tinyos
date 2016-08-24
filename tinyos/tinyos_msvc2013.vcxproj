@@ -137,6 +137,7 @@
     <ClCompile Include="source\userland\time.c" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="source\manuals\cmos-rtc.txt" />
     <Text Include="source\manuals\e820memmaps.txt" />
     <Text Include="source\manuals\readme.txt" />
   </ItemGroup>

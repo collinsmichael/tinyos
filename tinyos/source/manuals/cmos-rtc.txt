@@ -1,0 +1,31 @@
+
+outb (0x70, (NMI_disable_bit << 7) | (CMOS_register_number));
+Once a register is selected, you either read the value of that register
+on Port 0x71 (with inb or an equivalent function),
+or you write a new value to that register
+
+val_8bit = inb (0x71);
+
+
+
+Register  Contents
+ 0x00      Seconds
+ 0x02      Minutes
+ 0x04      Hours
+ 0x06      Weekday
+ 0x07      Day of Month
+ 0x08      Month
+ 0x09      Year
+ 0x32      Century (maybe)
+ 0x0A      Status Register A
+ 0x0B      Status Register B
+
+
+Register 0x10
+Value   Drive Type
+ 00h	no drive
+ 01h	360 KB 5.25 Drive
+ 02h	1.2 MB 5.25 Drive
+ 03h	720 KB 3.5 Drive
+ 04h	1.44 MB 3.5 Drive
+ 05h	2.88 MB 3.5 drive

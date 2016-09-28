@@ -3,6 +3,8 @@
 A minimalist operating system written in 935 lines of pure c,
 (exactly 1500 if you include whitespace and comments)
 and an fat12 compliant bootloader (about 200 lines of code)
+The bootloader is written in assembler and considered a
+seperate work.
 
 This is a 32 bit single tasking, unix like operating system.
 Features standard io. All devices are files (like in unix)
